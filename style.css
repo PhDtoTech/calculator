@@ -11,29 +11,45 @@ body {
     grid-template-rows: [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
     align-content: center; 
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
 }
 
-.num {
+.button {
     border-style: solid;
-    border-color:beige;
+    border-color:darkgray;
+    border-width: .5px;
     text-align: center;
     padding: 7px 0px;
     font-size: medium;
-    color: aliceblue;
-    background-color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.num {
+    color: black;
+    background-color: lightgrey;
+}
+
+.num:hover {
+    color: white;
+    background-color: darkgray;
 }
 
 .op {
-    border-style: solid;
-    text-align: center;
-    padding: 7px 0px;
+    background-color: orange;
+    color: white;
+}
+
+.op:hover {
+    background-color: rgb(252, 197, 93);
+    color: white;
 }
 
 #entry {
-    border-style: solid;
+    background-color: rgb(96, 96, 96);
+    color: white;
     text-align: right;
     padding: 7px 7px;
+    font-size: 24px;
     grid-column-start: first;
     grid-column-end: end;
     grid-row-start: row-first;
@@ -41,7 +57,25 @@ body {
 }
 
 #clear {
-    border-style: solid;
+    border-top-style: solid;
+    border-color:darkgray;
+    border-width: 1px;
+    background-color: rgb(96, 96, 96);
+    color: white;
+    text-align: center;
+    padding: 7px 7px;
+    grid-column-start: first;
+    grid-column-end: end;
+    grid-row-start: row-line2;
+    grid-row-end: row-line2;
+}
+
+#clear:hover {
+    border-top-style: solid;
+    border-color:darkgray;
+    border-width: 1px;
+    background-color: rgb(143, 143, 143);
+    color: white;
     text-align: center;
     padding: 7px 7px;
     grid-column-start: first;
@@ -51,11 +85,8 @@ body {
 }
 
 #zero {
-    border-style: solid;
-    text-align: center;
     grid-column-start: first;
     grid-column-end: line3;
     grid-row-start: row-line6;
     grid-row-end: row-end;
-    padding: 7px 0px;
 }
