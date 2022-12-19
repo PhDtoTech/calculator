@@ -43,13 +43,12 @@ function display() {
     });
 
 }
+const clear = document.getElementById("clear");
+
+clear.addEventListener('click', clear);
 
 function clear () {
-    const clear = document.getElementById("clear");
-
-    clear.addEventListener('click', () => {
-        entry.textContent = null;
-    });
+    entry.textContent = null;
 }
 
 
