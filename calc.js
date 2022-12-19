@@ -21,7 +21,18 @@ const multiply = function(a,b) {
 
 
 
+
+
+document.addEventListener('readystatechange', function() {
+    if (document.readyState === "complete") {
+      display();
+      clear ();
+    }
+  });
+
+
 function display() {
+    
     const entry = document.getElementById("entry");
 
     const numbers = document.querySelectorAll(".num");
@@ -30,25 +41,31 @@ function display() {
 
     numbers.forEach(number => {
         number.addEventListener('click', () => {
-            console.log (number.textContent);
+            if (entry.textContent == "=" || entry.textContent == "÷" || entry.textContent == "x" || entry.textContent == "-" || entry.textContent == "+") {
+                entry.textContent = "";
+            } 
+            
             entry.textContent += number.textContent;
+            
         });
     });
 
     operators.forEach(operator => {
         operator.addEventListener('click', () => {
-            console.log (operator.textContent);
             entry.textContent = operator.textContent;
         });
     });
 
 }
-const clear = document.getElementById("clear");
 
-clear.addEventListener('click', clear);
+
+
 
 function clear () {
-    entry.textContent = null;
+    const entry = document.getElementById("entry");
+    const clearButton = document.getElementById("clear");
+    clearButton.addEventListener('click', clear);
+    entry.textContent = "";
 }
 
 
