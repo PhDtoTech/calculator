@@ -19,10 +19,6 @@ const multiply = function(a,b) {
 };
 
 
-
-
-
-
 document.addEventListener('readystatechange', function() {
     if (document.readyState === "complete") {
       display();
@@ -34,9 +30,7 @@ document.addEventListener('readystatechange', function() {
 function display() {
     
     const entry = document.getElementById("entry");
-
     const numbers = document.querySelectorAll(".num");
-
     const operators = document.querySelectorAll(".op");
 
     numbers.forEach(number => {
@@ -46,7 +40,7 @@ function display() {
             } 
             
             entry.textContent += number.textContent;
-            
+
         });
     });
 
@@ -55,10 +49,9 @@ function display() {
             entry.textContent = operator.textContent;
         });
     });
+    
 
 }
-
-
 
 
 function clear () {
@@ -67,36 +60,3 @@ function clear () {
     clearButton.addEventListener('click', clear);
     entry.textContent = "";
 }
-
-
-
-// let firstNumber = 
-
-
-
-
-
-/* function display () {
-    const numberButtons = document.querySelectorAll('.num');
-  
-    numberButtons.forEach(numberButton => {
-      numberButton.addEventListener('click', () => {
-        console.log (numberButton.textContent);
-        document.getElementById("entry").textContent= numberButton.textContent;
-      });
-    });
-
-    const displayValue = numberButtons.textContent;
-
-    return displayValue;
-  } */
-
-  /* const buttons = document.querySelectorAll(".button");
-
-    buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      console.log (button.textContent);
-      document.getElementById("entry").textContent= button.textContent;
-    });
-  }); */
-
