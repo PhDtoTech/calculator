@@ -1,28 +1,34 @@
-function operate(operator, a, b) {
-    return (operator(a,b));
+function operate(op, numA, numB) {
+    return (op(numA,numB));
 };
 
-const add = function(a,b) {
-	return (a + b);
+const add = function(numA,numB) {
+	return (numA + numB);
 };
 
-const subtract = function(a,b) {
-	return (a - b);
+const subtract = function(numA,numB) {
+	return (numA - numB);
 };
 
-const divide = function(a,b) {
-	return (a/b);
+const divide = function(numA,numB) {
+	return (numA/numB);
 };
 
-const multiply = function(a,b) {
-    return (a * b);
+const multiply = function(numA,numB) {
+    return (numA * numB);
 };
 
+let op = "";
+
+let numA = "";
+
+let numB = "";
 
 document.addEventListener('readystatechange', function() {
     if (document.readyState === "complete") {
       display();
       clear ();
+      saveNums ();
     }
   });
 
@@ -59,4 +65,44 @@ function clear () {
     const clearButton = document.getElementById("clear");
     clearButton.addEventListener('click', clear);
     entry.textContent = "";
+}
+
+function saveNums () {
+    const numbers = document.querySelectorAll(".num");
+    const operators = document.querySelectorAll(".op");
+    const equalButton = document.getElementById("equal");
+
+    numbers.forEach(number => {
+        number.addEventListener('click', () => {
+            if (op=="") {
+                numA += number.textContent;
+                console.log("numA is " + numA);
+                return numA;
+            }
+            else {
+                numB += number.textContent;
+                console.log("numB is " + numB);
+                return numB;
+            }
+        })}
+    )
+
+    operators.forEach(operator => {
+        operator.addEventListener('click', () => {
+                return operator.textContent=="÷"? op=divide
+                      : operator.textContent=="-" ? op=subtract
+                      : operator.textContent=="+" ? op=add
+                      : op=multiply;
+        });
+    });
+
+    equalButton.addEventListener('click', () =>{
+        if (numA!="" && numB!="" && op!="") {
+            numA=numA*1;
+            numB=numB*1;
+            console.log((typeof numA)+ numA);
+            console.log((typeof numB)+ numB);
+            operate (op,numA, numB);
+        }
+    })
 }
