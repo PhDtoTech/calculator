@@ -1,5 +1,11 @@
-function operate(op, numA, numB) {
-    return (op(numA,numB));
+let op = "";
+
+let numA = "";
+
+let numB = "";
+
+function operate(add) {
+    return (add);
 };
 
 const add = function(numA,numB) {
@@ -18,11 +24,7 @@ const multiply = function(numA,numB) {
     return (numA * numB);
 };
 
-let op = "";
 
-let numA = "";
-
-let numB = "";
 
 document.addEventListener('readystatechange', function() {
     if (document.readyState === "complete") {
@@ -38,13 +40,13 @@ function display() {
     const entry = document.getElementById("entry");
     const numbers = document.querySelectorAll(".num");
     const operators = document.querySelectorAll(".op");
+    const equalButton = document.getElementById("equal");
 
     numbers.forEach(number => {
         number.addEventListener('click', () => {
             if (entry.textContent == "=" || entry.textContent == "÷" || entry.textContent == "x" || entry.textContent == "-" || entry.textContent == "+") {
                 entry.textContent = "";
             } 
-            
             entry.textContent += number.textContent;
 
         });
@@ -53,9 +55,14 @@ function display() {
     operators.forEach(operator => {
         operator.addEventListener('click', () => {
             entry.textContent = operator.textContent;
+            op=operator.textContent;
+            console.log(op + " " + typeof op);
         });
     });
     
+    equalButton.addEventListener('click', ()=> {
+        entry.textContent = "=";
+    })
 
 }
 
@@ -69,7 +76,6 @@ function clear () {
 
 function saveNums () {
     const numbers = document.querySelectorAll(".num");
-    const operators = document.querySelectorAll(".op");
     const equalButton = document.getElementById("equal");
 
     numbers.forEach(number => {
@@ -87,22 +93,15 @@ function saveNums () {
         })}
     )
 
-    operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-                return operator.textContent=="÷"? op=divide
-                      : operator.textContent=="-" ? op=subtract
-                      : operator.textContent=="+" ? op=add
-                      : op=multiply;
-        });
-    });
-
     equalButton.addEventListener('click', () =>{
         if (numA!="" && numB!="" && op!="") {
             numA=numA*1;
             numB=numB*1;
-            console.log((typeof numA)+ numA);
-            console.log((typeof numB)+ numB);
-            operate (op,numA, numB);
+            console.log(numA + op + numB );
+            if (op=="÷") {return operate(divide)}
+            else if (op=="-") {return operate(subtract)}
+            else if (op=="+" ) {return operate(add)}
+            else if (op=="x") {return operate(multiply)};
         }
     })
 }

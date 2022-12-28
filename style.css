@@ -34,7 +34,7 @@ body {
     background-color: darkgray;
 }
 
-.op {
+.op, #equal {
     background-color: orange;
     color: white;
 }
