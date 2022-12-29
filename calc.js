@@ -1,3 +1,10 @@
+const previousOperand = document.querySelector(".previous-operand");
+const currentOperand = document.querySelector(".current-operand");
+const numbers = document.querySelectorAll(".num");
+const operators = document.querySelectorAll(".op");
+const equalButton = document.getElementById("equal");
+const clearButton = document.getElementById("clear");
+
 let op = "";
 
 let numA = "";
@@ -23,13 +30,6 @@ const divide = function(numA,numB) {
 const multiply = function(numA,numB) {
     return (numA * numB);
 };
-
-const previousOperand = document.querySelector(".previous-operand");
-const currentOperand = document.querySelector(".current-operand");
-const numbers = document.querySelectorAll(".num");
-const operators = document.querySelectorAll(".op");
-const equalButton = document.getElementById("equal");
-const clearButton = document.getElementById("clear");
 
 numbers.forEach(number => {
     number.addEventListener('click', () => {
