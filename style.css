@@ -2,26 +2,30 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, rgb(251, 251, 245), rgb(255, 255, 255)) ;
 }
 
 #calculator {
-    display:grid;
+    display: grid;
     justify-content: center; 
-    grid-template-columns: [first] 40px [line2] 40px [line3] 40px [line4] 40px [end];
-    grid-template-rows: [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
     align-content: center; 
     text-align: center;
+    min-height: 100vh;
+    grid-template-columns: [first] 40px [line2] 40px [line3] 40px [line4] 40px [end];
+    grid-template-rows: [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 20px;
 }
 
-.button {
-    border-style: solid;
-    border-color:darkgray;
-    border-width: .5px;
+button {
+    border: .5px solid white;
     text-align: center;
-    padding: 7px 0px;
+    padding: 0px;
+    margin: 0px;
     font-size: medium;
+    cursor: pointer;
+    outline: none;
 }
 
 .num {
@@ -34,26 +38,35 @@ body {
     background-color: darkgray;
 }
 
-.op, #equal {
+.op {
     background-color: orange;
     color: white;
 }
 
 .op:hover {
     background-color: rgb(252, 197, 93);
-    color: white;
 }
 
-#entry {
+.entry {
     background-color: rgb(96, 96, 96);
     color: white;
     text-align: right;
     padding: 7px 7px;
-    font-size: 24px;
-    grid-column-start: first;
-    grid-column-end: end;
-    grid-row-start: row-first;
-    grid-row-end: row-first;
+    grid-column: 1 / -1; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.entry .previous-operand {
+    font-size: .5rem;
+}
+
+.entry .current-operand {
+    font-size: 1.2rem;
 }
 
 #clear {
@@ -64,24 +77,11 @@ body {
     color: white;
     text-align: center;
     padding: 7px 7px;
-    grid-column-start: first;
-    grid-column-end: end;
-    grid-row-start: row-line2;
-    grid-row-end: row-line2;
+    grid-column: 1 / -1;
 }
 
 #clear:hover {
-    border-top-style: solid;
-    border-color:darkgray;
-    border-width: 1px;
     background-color: rgb(143, 143, 143);
-    color: white;
-    text-align: center;
-    padding: 7px 7px;
-    grid-column-start: first;
-    grid-column-end: end;
-    grid-row-start: row-line2;
-    grid-row-end: row-line2;
 }
 
 #zero {
