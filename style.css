@@ -14,7 +14,7 @@ body {
     text-align: center;
     min-height: 100vh;
     grid-template-columns: [first] 40px [line2] 40px [line3] 40px [line4] 40px [end];
-    grid-template-rows: [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
+    grid-template-rows: minmax(45px, auto) [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -51,7 +51,7 @@ button {
     background-color: rgb(96, 96, 96);
     color: white;
     text-align: right;
-    padding: 7px 7px;
+    padding: 5px 5px;
     grid-column: 1 / -1; 
     display: flex;
     flex-direction: column;
@@ -82,11 +82,4 @@ button {
 
 #clear:hover {
     background-color: rgb(143, 143, 143);
-}
-
-#zero {
-    grid-column-start: first;
-    grid-column-end: line3;
-    grid-row-start: row-line6;
-    grid-row-end: row-end;
 }
