@@ -1,85 +1,100 @@
-const previousOperand = document.querySelector(".previous-operand");
-const currentOperand = document.querySelector(".current-operand");
+const previousOperandTextElement = document.querySelector(".previous-operand");
+const currentOperandTextElement = document.querySelector(".current-operand");
 const numbers = document.querySelectorAll(".num");
 const operators = document.querySelectorAll(".op");
 const equalButton = document.getElementById("equal");
 const clearButton = document.getElementById("clear");
 
-let op = "";
+let currentOperand = "";
 
-let numA = "";
+let previousOperand = "";
 
-let numB = "";
+let operation = 
 
 function operate() {
-    return (add);
+    return (op);
 };
 
-const add = function(numA,numB) {
-	return (numA + numB);
-};
+function clear () {
+    previousOperandTextElement.textContent = "";
+    currentOperandTextElement.textContent = "";
+    operation = undefined;
+    previousOperand = "";
+    currentOperand = "";
+}
 
-const subtract = function(numA,numB) {
-	return (numA - numB);
-};
+function appendNumber (number) {
+    if (number === "." && currentOperand.includes('.')) return
+    currentOperand = currentOperand.toString() + number.toString()
+   
+}
 
-const divide = function(numA,numB) {
-	return (numA/numB);
-};
+function chooseOperation (operation) {
+    if (currentOperand === "") return
+    if (previousOperand !== "") {
+        compute()
+    }
+    thisOperation = operation
+    previousOperand = currentOperand
+    currentOperand = ""
+    return operation
+ 
+}
 
-const multiply = function(numA,numB) {
-    return (numA * numB);
-};
+function compute () {
+    let computation
+    const prev = parseFloat(previousOperand)
+    const current = parseFloat(currentOperand)
+    console.log(current, prev, operation)
+    if (isNaN(prev) || isNaN(current)) return
+    switch (operation) {
+        case '+':
+            computation = prev + current
+            break
+        case '-':
+            computation = prev - current
+            break
+        case 'x':
+            computation = prev * current
+            break   
+        case '÷':
+            computation = prev / current
+            break
+        default: 
+            return   
+    }
+
+    currentOperand = computation
+    operation = undefined
+    previousOperand = ""
+    
+
+}
+
+function updateDisplay () {
+    currentOperandTextElement.textContent = currentOperand;
+    previousOperandTextElement.textContent = previousOperand;
+}
 
 numbers.forEach(number => {
     number.addEventListener('click', () => {
-        if (previousOperand.textContent == "=" || previousOperand.textContent == "÷" || previousOperand.textContent == "x" || previousOperand.textContent == "-" || previousOperand.textContent == "+") {
-            previousOperand.textContent = "";
-        } 
-        
-        previousOperand.textContent += number.textContent;
-
-        if (op=="") {
-            numA += number.textContent;
-            console.log("numA is " + numA);
-            return numA;
-        }
-        else {
-            numB += number.textContent;
-            console.log("numB is " + numB);
-            return numB;
-        }
-
+        appendNumber(number.textContent);
+        updateDisplay();
     });
 });
 
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
-        previousOperand.textContent += " " + operator.textContent + " ";
-        op=operator.textContent;
-        console.log(op + " " + typeof op);
+        chooseOperation(operator.textContent)
+        updateDisplay()
     });
 });
     
 equalButton.addEventListener('click', ()=> {
-    previousOperand.textContent = "=";
-    if (numA!="" && numB!="" && op!="") {
-        numA=numA*1;
-        numB=numB*1;
-        console.log(typeof numA + op + typeof numB );
-        if (op=="÷") {currentOperand.textContent = divide(numA,numB)}
-        else if (op=="-") {currentOperand.textContent = subtract(numA,numB)}
-        else if (op=="+" ) {currentOperand.textContent = add(numA,numB)}
-        else if (op=="x") {currentOperand.textContent = multiply(numA,numB)};
-    }
-})
+    compute ();
+    updateDisplay ();
+    })
 
 clearButton.addEventListener('click', clear);
 
-function clear () {
-    previousOperand.textContent = "";
-    currentOperand.textContent = "";
-    op = "";
-    numA = "";
-    numB = "";
-}
+
