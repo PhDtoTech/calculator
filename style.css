@@ -42,6 +42,19 @@
   .calculator-grid > .number:hover {
     background-color: rgba(229, 177, 56, 0.9);
   }
+
+  .calculator-grid > #equals {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    color: white;
+    outline: none;
+    background-color: rgba(33, 32, 30, 0.65);
+  }
+
+  .calculator-grid > #equals:hover {
+    background-color: rgba(33, 32, 30, 0.9);
+  }
   
   .span-two {
     grid-column: span 2;
