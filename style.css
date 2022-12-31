@@ -1,85 +1,70 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+  }
+  
+  body {
     padding: 0;
     margin: 0;
-    background-color: rgb(247, 247, 241);
-}
-
-#calculator {
+    background: linear-gradient(to right, #f7f7e7, #f6f6ec);
+  }
+  
+  .calculator-grid {
     display: grid;
-    justify-content: center; 
-    align-content: center; 
-    text-align: center;
+    justify-content: center;
+    align-content: center;
     min-height: 100vh;
-    grid-template-columns: [first] 40px [line2] 40px [line3] 40px [line4] 40px [end];
-    grid-template-rows: minmax(45px, auto) [row-first] 40px [row-line2] 40px [row-line3] 40px [row-line4] 40px [row-line5] 40px [row-line6] 40px [row-end];
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-button {
-    border: .5px solid white;
-    text-align: center;
-    padding: 0px;
-    margin: 0px;
-    font-size: medium;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  }
+  
+  .calculator-grid > button {
     cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
     outline: none;
-}
+    background-color: rgba(255, 255, 255, .65);
+  }
+  
+  .calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+  }
 
-.num {
-    color: black;
-    background-color: lightgrey;
-}
+  .calculator-grid > .number {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(229, 177, 56, 0.65);
+  }
 
-.num:hover {
-    color: white;
-    background-color: darkgray;
-}
-
-.op {
-    background-color: orange;
-    color: white;
-}
-
-.op:hover {
-    background-color: rgb(252, 197, 93);
-}
-
-.entry {
-    background-color: rgb(96, 96, 96);
-    color: white;
-    text-align: right;
-    padding: 5px 5px;
-    grid-column: 1 / -1; 
+  .calculator-grid > .number:hover {
+    background-color: rgba(229, 177, 56, 0.9);
+  }
+  
+  .span-two {
+    grid-column: span 2;
+  }
+  
+  .output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
     display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
     word-wrap: break-word;
     word-break: break-all;
-}
-
-.entry .previous-operand {
-    font-size: .5rem;
-}
-
-.entry .current-operand {
-    font-size: 1.2rem;
-}
-
-#clear {
-    border-top-style: solid;
-    border-color:darkgray;
-    border-width: 1px;
-    background-color: rgb(96, 96, 96);
+  }
+  
+  .output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+  }
+  
+  .output .current-operand {
     color: white;
-    text-align: center;
-    padding: 7px 7px;
-    grid-column: 1 / -1;
-}
-
-#clear:hover {
-    background-color: rgb(143, 143, 143);
-}
+    font-size: 2.5rem;
+  }
