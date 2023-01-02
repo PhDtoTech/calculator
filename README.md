@@ -51,7 +51,7 @@ Lastly, I will create the functions needed to populate the display, clear the ca
     - [x] subtract
     - [x] multiply
     - [x] divide
-- [ ] Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+- [x] Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 - [x] Create a basic HTML calculator
     - [x] buttons for each digit
     - [x] buttons for each operator
@@ -62,8 +62,8 @@ Lastly, I will create the functions needed to populate the display, clear the ca
 - [x] Store the ‘display value’ in a variable.
 - [x] Store the operation that has been chosen.
 - [x] Operate() on them when the user presses the “=” key.
-- [ ] Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time.
-- [ ] Your calculator should not evaluate more than a single pair of numbers at a time. 
+- [x] Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time.
+- [x] Your calculator should not evaluate more than a single pair of numbers at a time. 
 - [ ] You should round answers with long decimals so that they don’t overflow the screen.
 - [ ] Pressing = before entering all of the numbers or an operator could cause problems!
 - [x] Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
@@ -71,7 +71,7 @@ Lastly, I will create the functions needed to populate the display, clear the ca
 
 ## Extra Credit
 
-- [ ] Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! 
+- [x] Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! 
 - [x] Make it look nice! 
-- [ ] Add a “backspace” button.
+- [x] Add a “backspace” button.
 - [ ] Add keyboard support! 
