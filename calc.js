@@ -46,7 +46,13 @@ class Calculator {
           computation = prev * current
           break
         case '÷':
-          computation = prev / current
+          if (prev == '0' || current == '0') {
+            computation = ""
+            this.clear()
+            this.updateDisplay()
+            alert ("Can't divide by zero!")
+        } else {
+          computation = prev / current}
           break
         default:
           return
