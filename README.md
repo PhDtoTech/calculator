@@ -67,7 +67,7 @@ Lastly, I will create the functions needed to populate the display, clear the ca
 - [ ] You should round answers with long decimals so that they don’t overflow the screen.
 - [ ] Pressing = before entering all of the numbers or an operator could cause problems!
 - [x] Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
-- [ ] Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+- [x] Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
 
 ## Extra Credit
 
